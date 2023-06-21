@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!--form action次にどこに、何メソッドでデータを飛ばすかを定める-->
+<!--csrf_tokenを書かないと、脆弱だとエラーが出る。-->
+<form action="" method="POST">{% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="作成する">
+</form>
+{% endblock content %}
+

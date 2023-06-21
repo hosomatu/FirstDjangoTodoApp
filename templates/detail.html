@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% comment %} base.htmlから型（テンプレート）の使い回し {% endcomment %}
+{% comment %} extendsを使用する時はタグが一番初めにこないといけないのでコメントも注意する {% endcomment %}
+
+
+{% comment %} ヘッダーの継承 {% endcomment %}
+{% block header %}
+{% comment %} Bootstrapから使っている。（v4) {% endcomment %}
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">詳細画面</h1>
+      <p class="lead">Todoの詳細です</p>
+    </div>
+  </div>
+{% endblock header %}
+
+{% comment %} コンテンツの継承 {% endcomment %}
+{% block content %}
+<div class='container'>
+    <div class="alert alert-success" role="alert">
+        <!--models.pyで定めたテーブルの中身をオブジェクトとして呼び出している-->
+        <p>タイトル：{{ object.title }}</p>
+        <p>中身：{{ object.memo }}</p>
+        <p>期日：{{ object.duedate }}</p>
+      </div>
+{% endblock content %}
+
